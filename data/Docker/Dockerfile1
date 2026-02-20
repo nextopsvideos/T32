@@ -1,0 +1,11 @@
+FROM baseImage                              FROM my_ubuntu:22.04
+ARG name=defaultValue                       ARG VAR1=VALUE1                 Optional
+WORKDIR /the/workdir/path                   WORKDIR /usr/local/apache2
+RUN command                                 RUN mkdir ./data
+COPY source dest                            COPY /home/charan/env_vars.txt     
+ADD source dest                              
+ENV key=value                                   
+EXPOSE port
+LABEL key="value"
+ENTRYPOINT [ "executable" ]
+CMD [ "executable" ]

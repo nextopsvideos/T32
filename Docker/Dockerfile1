@@ -1,0 +1,11 @@
+FROM baseImage                              FROM internal_image
+ARG name=defaultValue                       ARG VAR1=VALUE1                 Optional  
+WORKDIR /the/workdir/path                   WORKDIR /usr/local/apache2      
+RUN command                                 RUN mkdir ./data                *
+COPY source dest                            COPY /home/charan/data.zip  .   *
+ADD source dest                             ADD /home/charan/data.zip  .    *
+ENV key=value                               ENV INIT_USERNAME=root          *
+EXPOSE port                                 EXPOSE 8080
+LABEL key="value"                           LABEL creator=charan            Optional
+ENTRYPOINT [ "executable" ]                 ENTRYPONT [ "ls" ] 
+CMD [ "executable" ]                        CMD [ "-ll" ]         
