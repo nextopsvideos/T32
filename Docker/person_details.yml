@@ -1,0 +1,14 @@
+first_name: Adam        #string(scalar)/mapping
+last_name: Bertram
+hair_color: Brown
+married: true           #boolean
+dog_count: 2            #integer(scalar)/mapping
+dogs:                   #list/sequence/dictionary
+  - dog1:
+      name: Elliot
+      breed: Shih-Tzu
+      color: black/white
+  - dog2:
+      name: Brody
+      breed: Shih-Tzu 
+      color: black
