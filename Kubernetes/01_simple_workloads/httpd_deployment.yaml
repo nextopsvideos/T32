@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment  #Controller - Self Healing
 metadata: 
-  name: nginx-deployment
+  name: httpd-deployment
   labels:
-    app: nginx
+    app: httpd 
 spec: 
-  replicas: 5     #Replicaset
+  replicas: 10     #Replicaset
   selector:
     matchLabels:
-      app: nginx
+      app: httpd
   template:
     metadata: 
-      name: nginx-pod
+      name: httpd-pod
       labels:
-        app: nginx
+        app: httpd
     spec:
       containers:
-        - name: nginx-main 
-          image: nginx:latest
+        - name: httpd-main 
+          image: httpd:latest
           ports:
             - containerPort: 80
