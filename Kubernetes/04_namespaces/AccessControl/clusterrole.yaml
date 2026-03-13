@@ -1,9 +1,8 @@
 #grant kubernetes engine cluster viewer permissions in console from admin account
 apiVersion: rbac.authorization.k8s.io/v1
-kind: Role                # Namespace level access
+kind: ClusterRole             #Cluster level access (multiple namespace access)           
 metadata:
   name: pods-and-podlog-reader
-  namespace: dev-team
 rules:
 - apiGroups:
     - ""
