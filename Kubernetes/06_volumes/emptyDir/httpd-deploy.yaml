@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: httpd-ed
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: httpd-ed
+  template:
+    metadata:
+      labels:
+        app: httpd-ed
+    spec:
+      containers:
+      - name: httpd-ed
+        image: httpd        
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: empdir-vol 
+          mountPath: /temp_data
+      volumes:
+      - name: empdir-vol 
+        emptyDir: {}          # Anonymous volumes in docker

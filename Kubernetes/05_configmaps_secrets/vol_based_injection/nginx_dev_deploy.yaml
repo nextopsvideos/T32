@@ -1,0 +1,43 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: nginx-dev-deploy
+  labels:
+    app: nginx-dev
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: nginx-dev
+  template:
+    metadata:
+      name: nginx
+      labels:
+        app: nginx-dev
+    spec:
+      containers:
+        - name: nginx  
+          image: nginx           
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+          - name: nginx-dev-config-vol
+            mountPath: /etc/nginx/conf.d/           #/etc/nginx/conf.d/default.conf
+      volumes:
+      - name: nginx-dev-config-vol 
+        configMap:
+          name: nginx-dev-cm
+---
+apiVersion: v1 
+kind: Service 
+metadata:
+  name: nginx-dev-service
+  labels:
+    app: nginx-dev
+spec:
+  selector:
+    app: nginx-dev
+  ports:
+  - port: 80
+    targetPort: 8080
+  type: ClusterIP
