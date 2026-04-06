@@ -1,0 +1,21 @@
+apiVersion: networking.istio.io/v1 
+kind: VirtualService
+metadata: 
+  name: reviews 
+spec:
+  hosts:
+    - reviews     # clusterip reviews service
+  http:
+  - route:
+    - destination:
+        host: reviews   #clusterip
+        subset: v1      #deployment #older release
+      weight: 0
+    - destination:
+        host: reviews
+        subset: v2      #stable release
+      weight: 0
+    - destination:
+        host: reviews
+        subset: v3      #latest release
+      weight: 100
