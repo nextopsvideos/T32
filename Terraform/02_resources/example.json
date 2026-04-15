@@ -1,0 +1,12 @@
+{
+  "first_name": "Adam",
+  "last_name": "Smith",
+  "age": 30,
+  "email": "adam.smith@xyz.com",
+  "address": {
+    "street": "123 Main St",
+    "city": "Anytown",
+    "state": "CA",
+    "postal_code": "12345"
+  }
+}
